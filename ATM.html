@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>ATM.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST2 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST4 {font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\kunch\Documents\NetBeansProjects\ATM\src\atm\ATM.java</td></tr></table>
+<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment"> * To change this license header, choose License Headers in Project Properties.</span>
+ 3 <span class="comment"> * To change this template file, choose Tools | Templates</span>
+ 4 <span class="comment"> * and open the template in the editor.</span>
+ 5 <span class="comment"> */</span>
+ 6 <span class="literal">package</span> atm;
+ 7 <span class="literal">import</span> java.util.Scanner;
+ 8 <span class="comment">/**</span>
+ 9 <span class="comment"> *</span>
+10 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">kunch</span>
+11  <span class="comment">*/</span>
+12 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">ATM</span> {
+13 
+14     <span class="comment">/**</span>
+15 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+16      <span class="comment">*/</span>
+17     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) {
+18         <span class="comment">// TODO code application logic here</span>
+19         <span class="literal">int</span> balance = 10000, withdrawal, deposit;
+20         Scanner sc = <span class="literal">new</span> Scanner(System.<span class="ST3">in</span>);
+21         <span class="literal">while</span>(<span class="literal">true</span>)
+22         {
+23             System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Automated Teller Machine</span><span class="string">&quot;</span>);
+24             System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Choose 1 for Withdrawal</span><span class="string">&quot;</span>);
+25             System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Choose 2 for Deposit</span><span class="string">&quot;</span>);
+26             System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Choose 3 for Check Balance</span><span class="string">&quot;</span>);
+27             System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Choose 4 for EXIT</span><span class="string">&quot;</span>);
+28             System.<span class="ST3">out</span>.print(<span class="string">&quot;</span><span class="string">Choose the operation you want to perform:</span><span class="string">&quot;</span>);
+29             <span class="literal">int</span> n = sc.nextInt();
+30             <span class="literal">switch</span>(n)
+31             {
+32                 <span class="literal">case</span> 1:
+33                 System.<span class="ST3">out</span>.print(<span class="string">&quot;</span><span class="string">Enter the money to be withdrawn:</span><span class="string">&quot;</span>);
+34                 withdrawal = sc.nextInt();
+35                 <span class="literal">if</span>(balance &gt;= withdrawal)
+36                 {
+37                     balance = balance - withdrawal;
+38                     System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Collect the money</span><span class="string">&quot;</span>);
+39                 }
+40                 <span class="literal">else</span>
+41                 {
+42                     System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Insufficient Balance</span><span class="string">&quot;</span>);
+43                     System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Check the balance before withdrawing</span><span class="string">&quot;</span>);
+44                 }
+45                 System.<span class="ST3">out</span>.println(<span class="string">&quot;&quot;</span>);
+46                 <span class="literal">break</span>;
+47  
+48                 <span class="literal">case</span> 2:
+49                 System.<span class="ST3">out</span>.print(<span class="string">&quot;</span><span class="string">Enter the money to be deposited:</span><span class="string">&quot;</span>);
+50                 deposit = sc.nextInt();
+51                 balance = balance + deposit;
+52                 System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Money has been deposited</span><span class="string">&quot;</span>);
+53                 System.<span class="ST3">out</span>.println(<span class="string">&quot;&quot;</span>);
+54                 <span class="literal">break</span>;
+55  
+56                 <span class="literal">case</span> 3:
+57                 System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Available Balance : </span><span class="string">&quot;</span>+balance);
+58                 System.<span class="ST3">out</span>.println(<span class="string">&quot;&quot;</span>);
+59                 <span class="literal">break</span>;
+60  
+61                 <span class="literal">case</span> 4:
+62                 System.<span class="ST4">exit</span>(0);
+63             }
+64         }
+65     }
+66 }
+</pre></body>
+</html>
